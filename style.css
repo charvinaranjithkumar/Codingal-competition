@@ -1,0 +1,108 @@
+/* styles.css */
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    /* Stack the cube and paragraph vertically */
+    align-items: center;
+    /* Center align the content */
+}
+
+.perspective {
+    perspective: 800px;
+    /* Distance from the viewer to the z=0 plane */
+}
+.splash-screen {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: url('images/ocean-background.gif') no-repeat center center fixed;
+    background-size: cover;
+    text-align: center;
+}
+.dive-button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-color: #004d40;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.box {
+    width: 200px;
+    /* Width of the cube */
+    height: 200px;
+    /* Height of the cube */
+    position: relative;
+    transform-style: preserve-3d;
+    /* Preserve 3D transformations */
+    animation: rotate 5s infinite linear;
+    /* Animation for rotation */
+}
+
+.face {
+    position: absolute;
+    width: 200px;
+    /* Match the width of the box */
+    height: 200px;
+    /* Match the height of the box */
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Background color */
+    border: 1px solid #ccc;
+    /* Optional border */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* Optional shadow */
+}
+
+/* Positioning the faces */
+.face.front {
+    transform: translateZ(100px);
+    /* Move front face forward */
+}
+
+.face.back {
+    transform: rotateY(180deg) translateZ(100px);
+    /* Move back face back */
+}
+
+.face.right {
+    transform: rotateY(90deg) translateZ(100px);
+    /* Move right face to the right */
+}
+
+.face.left {
+    transform: rotateY(-90deg) translateZ(100px);
+    /* Move left face to the left */
+}
+
+.face.top {
+    transform: rotateX(90deg) translateZ(100px);
+    /* Move top face up */
+}
+
+.face.bottom {
+    transform: rotateX(-90deg) translateZ(100px);
+    /* Move bottom face down */
+}
+
+/* Animation for rotation */
+@keyframes rotate {
+    from {
+        transform: rotateY(0deg);
+    }
+
+    to {
+        transform: rotateY(360deg);
+    }
+}
